@@ -1,0 +1,58 @@
+body {
+    background-color: #f4f4f4;
+}
+.navbar {
+    background-color: #0a0a0a; /* Black */
+}
+.navbar-brand, .nav-link {
+    color: #ffffff !important; /* White */
+}
+.hero-section {
+    background-color: #006400; 
+    background-image:url('../images/model.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;/* Dark Green */
+    
+    text-align: center;
+    height: 500px;
+}
+.bg-color{
+    background-color: #006400;
+}
+.main-color{
+    color: #006400;
+}
+
+.hero-section div{
+    padding-top: 200px;
+    color:azure;
+
+}
+.product-card, .testimonial-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+.product-card:hover, .testimonial-card:hover {
+    transform: scale(1.05);
+}
+.product-card img, .testimonial-card img {
+    height: 200px;
+    object-fit: cover;
+}
+.about-section, .blog-section, .newsletter-section {
+    padding: 40px 0;
+    background-color: #ffffff;
+}
+.footer {
+    background-color: #0a0a0a; /* Black */
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}
+/* Hide the top navbar on mobile */
+@media (max-width: 767px) {
+    .navbar-light.d-none.d-md-block {
+        display: none !important;
+    }
+}
