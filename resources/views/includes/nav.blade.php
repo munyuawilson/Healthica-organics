@@ -49,6 +49,9 @@
                 <li class="nav-item px-2"><a class="nav-link" href="#">Home</a></li>
                 <li class="nav-item px-2"><a class="nav-link" href="#about">About Us</a></li>
                 <li class="nav-item px-2"><a class="nav-link" href="#products">Products</a></li>
+               
+        <li class="nav-item px-2"><a class="nav-link" href="/cart"> <i class="fas fa-shopping-cart"></i>
+        <span class="item-count text-success" id="itemCount">0</span></a></li>
                 <li class="nav-item px-2"><a class="nav-link" href="#blog">Blog</a></li>
                 <li class="nav-item px-2"><a class="nav-link" href="#contact">Contact Us</a></li>
             </ul>

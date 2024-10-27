@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Healthica Organics</title>
     <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <style>
        
@@ -17,17 +16,22 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-12345abcde..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="{{asset('/css/app.css')}}">
 <link rel="shortcut icon" href="{{ asset('/images/logo.jpeg') }}"  type="image/x-icon">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
 
    
 @include('includes.nav')
+<div id="cartPopup" class="">
+    <p class="bg-success text-white px-5 pt-3 pb-3">Item added to the cart!</p>
+</div>
     <!-- Hero Section -->
     <section class="hero-section ">
         <div class="container ">
             <h1>Welcome to Healthica Organics</h1>
             <p>Discover the best organic products for a healthy lifestyle.</p>
-            <a href="#products" class="btn btn-light mt-3 bg-color text-white">Shop Now</a>
+            <a href="#products" class="btn   mt-3  text-white" style="background-color:#006400">Shop Now</a>
         </div>
     </section>
 
@@ -41,90 +45,37 @@
 
     <!-- Products Section -->
     <section class="products-section py-5" id="products">
+    <div class="container">
+        <h2 class="text-center mb-5">Our Featured Products</h2>
         <div class="container">
-            <h2 class="text-center mb-5">Our Featured Products</h2>
-            <div class="container">
-    <div class="row">
-        <!-- Product Card 1 -->
-        <div class="col-md-4 mb-4">
-            <div class="card product-card">
-                <img src="{{asset('images/prod1.webp')}}" class="card-img-top" alt="Beard Growth Oil">
-                <div class="card-body">
-                    <h5 class="card-title">Beard Growth Oil</h5>
-                    <p class="card-text">Enhance your beard with our organic Beard Growth Oil, enriched with natural nutrients for thicker, fuller growth.</p>
-                    <p class="card-text"><strong>Price: Ksh 600</strong></p>
-                    <a href="#" class="btn btn-success">Buy Now</a>
-                </div>
+            <div class="row">
+                @foreach($products as $product)
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card">
+                            <img src="{{ asset('storage/public' . $product->image_path) }}" class="card-img-top" alt="{{ $product->image_path }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $product->name }}</h5>
+                                <p class="card-text">{{ $product->description }}</p>
+                                <p class="card-text"><strong>Price: Ksh {{ number_format($product->price, 2) }}</strong></p>
+                                <a href="#" class="btn btn-success">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
-        <!-- Product Card 2 -->
-        <div class="col-md-4 mb-4">
-            <div class="card product-card">
-                <img src="{{asset('images/prod2.webp')}}" class="card-img-top" alt="Jamaican Black Castor Oil">
-                <div class="card-body">
-                    <h5 class="card-title">Jamaican Black Castor Oil</h5>
-                    <p class="card-text">A powerful oil for hair and skin care, Jamaican Black Castor Oil helps with hair growth and adds a healthy shine.</p>
-                    <p class="card-text"><strong>Price: Ksh 400</strong></p>
-                    <a href="#" class="btn btn-success">Buy Now</a>
-                </div>
-            </div>
-        </div>
-        <!-- Product Card 3 -->
-        <div class="col-md-4 mb-4">
-            <div class="card product-card">
-                <img src="{{asset('images/prod3.webp')}}" class="card-img-top" alt="Vitamin C Serum">
-                <div class="card-body">
-                    <h5 class="card-title">Vitamin C Serum</h5>
-                    <p class="card-text">Boost your skin’s radiance with our Vitamin C Serum, formulated to brighten and smooth your complexion.</p>
-                    <p class="card-text"><strong>Price: Ksh 600</strong></p>
-                    <a href="#" class="btn btn-success">Buy Now</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <!-- Product Card 1 -->
-        <div class="col-md-4 mb-4">
-            <div class="card product-card">
-                <img src="{{asset('images/prod4.webp')}}" class="card-img-top" alt="Beard Growth Oil">
-                <div class="card-body">
-                    <h5 class="card-title">Vitamin E Oil</h5>
-                    <p class="card-text">Vitamin E Oil hydrates and protects the skin, reducing scars and fine lines for a healthier look.</p>
-                    <p class="card-text"><strong>Price: Ksh 600</strong></p>
-                    <a href="#" class="btn btn-success">Buy Now</a>
-                </div>
-            </div>
-        </div>
-        <!-- Product Card 2 -->
-        <div class="col-md-4 mb-4">
-            <div class="card product-card">
-                <img src="{{asset('images/prod5.webp')}}" class="card-img-top" alt="Jamaican Black Castor Oil">
-                <div class="card-body">
-                    <h5 class="card-title">shea Butter</h5>
-                    <p class="card-text">Shea Butter deeply moisturizes and soothes, leaving skin soft and smooth.</p>
-                    <p class="card-text"><strong>Price: Ksh 400</strong></p>
-                    <a href="#" class="btn btn-success">Buy Now</a>
-                </div>
-            </div>
-        </div>
-        <!-- Product Card 3 -->
-        <div class="col-md-4 mb-4">
-            <div class="card product-card">
-                <img src="{{asset('images/prod3.webp')}}" class="card-img-top" alt="Vitamin C Serum">
-                <div class="card-body">
-                    <h5 class="card-title">Vitamin C Serum</h5>
-                    <p class="card-text">Boost your skin’s radiance with our Vitamin C Serum, formulated to brighten and smooth your complexion.</p>
-                    <p class="card-text"><strong>Price: Ksh 600</strong></p>
-                    <a href="#" class="btn btn-success">Buy Now</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-</div>
 
+        <!-- Pagination Links -->
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex justify-content-center">
+                    {{ $products->links() }} <!-- This will render the pagination links -->
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Testimonials Section -->
     <section class="about-section">
@@ -206,6 +157,8 @@
             </form>
         </div>
     </section>
+    
+
 
     <!-- Footer Section -->
     <footer class="footer">
@@ -216,6 +169,99 @@
             </div>
         </div>
     </footer>
+
+<script>
+// Initialize cart from localStorage or set it as an empty array
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+
+    // Function to add a product to the cart
+    function addToCart(id, name, price,description) {
+    // Check if the item already exists in the cart
+    const existingItem = cart.find(item => item.id === id);
+
+    if (existingItem) {
+        // If the item is already in the cart, increase its quantity
+        existingItem.quantity += 1;
+    } else {
+        // Otherwise, add the new item to the cart
+        cart.push({ id, name, price, quantity: 1 });
+    }
+
+    // Update localStorage with the updated cart
+    localStorage.setItem('cart', JSON.stringify(cart));
+    console.log(cart);
+    updateItemCount(); 
+
+    // Show the popup
+    showPopup("Item added to the cart!");
+
+   
+}
+
+// Function to display the popup with a message
+function showPopup(message) {
+    const popup = document.getElementById('cartPopup');
+    popup.querySelector('p').textContent = message;
+    
+    // Show the popup
+    popup.classList.add('show');
+
+    // Hide the popup after 3 seconds
+    setTimeout(() => {
+        popup.classList.remove('show');
+    }, 3000);
+}
+
+// Function to update the quantity of an item
+function updateItemCount() {
+    const itemCountElement = document.getElementById('itemCount');
+    let totalItems = 0;
+
+    // Calculate total number of items in the cart
+    cart.forEach(item => {
+        totalItems += item.quantity;
+    });
+
+    // Update the item count in the nav
+    itemCountElement.textContent = totalItems;
+}
+
+// Function to remove an item from the cart
+function removeCartItem(id) {
+    cart = cart.filter(item => item.id !== id);
+    
+    // Update localStorage and cart summary
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartSummary();
+}
+// Function to update the mini-cart summary
+function updateCartSummary() {
+    let itemCount = 0;
+    let totalPrice = 0;
+
+    // Calculate total items and price
+    cart.forEach(item => {
+        itemCount += item.quantity;
+        totalPrice += item.quantity * item.price;
+    });
+
+    // Update the HTML with the new values
+    document.getElementById('item-count').textContent = itemCount;
+    document.getElementById('total-price').textContent = totalPrice.toFixed(2);
+}
+
+// Call the function initially to load the summary on page load
+updateCartSummary();
+
+function clearCart() {
+    cart = [];
+    localStorage.removeItem('cart');
+    updateCartSummary();
+}
+</script>
+
+
     <script>
                 var url = 'https://wati-integration-prod-service.clare.ai/v2/watiWidget.js?61220';
                 var s = document.createElement('script');
